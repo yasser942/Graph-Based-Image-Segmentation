@@ -36,7 +36,7 @@ class _SelectImageState extends State<SelectImage>
       var request = http.MultipartRequest(
           'POST',
           Uri.parse(
-              'http://192.168.1.109:5000/segment')); // Change the endpoint to '/segment'
+              'http://192.168.1.114:5001/segment'));
       request.files.add(await http.MultipartFile.fromPath(
           'image', _file!.path)); // 'image' is the key
 
@@ -45,7 +45,6 @@ class _SelectImageState extends State<SelectImage>
       if (response.statusCode == 200) {
         Navigator.pop(context); // Hide progress indicator
 
-        // The response is an image. You can display it using an Image widget.
         final bytes = await response.stream.toBytes();
         final image = Image.memory(
           bytes,
@@ -78,7 +77,7 @@ class _SelectImageState extends State<SelectImage>
           body: Image.asset('assets/error.png'),
           btnOkOnPress: () {},
         ).show();
-        // Handle error appropriately, e.g., display a user-friendly error message
+        print(response.reasonPhrase);
       }
     } catch (error) {
       Navigator.pop(context); // Hide progress indicator

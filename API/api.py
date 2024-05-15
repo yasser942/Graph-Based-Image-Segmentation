@@ -40,4 +40,4 @@ def segment_image():
     return send_file(io_lib.BytesIO(byte_arr), mimetype='image/png')
 
 if __name__ == '__main__':
-    app.run(debug=True ,host='192.168.1.115', port=5001 ,threaded=True)
+    app.run(debug=True ,host='192.168.1.114', port=5001 ,threaded=True)

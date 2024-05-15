@@ -38,7 +38,7 @@ const onUpload = async (event) => {
   formData.append('image', event.files[0]);
 
   try {
-    const response = await axios.post('http://192.168.1.115:5001/segment', formData, {
+    const response = await axios.post('http://192.168.1.114:5001/segment', formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       },
